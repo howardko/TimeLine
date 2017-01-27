@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import '../style/App.scss'
-import '../style/bootstrap.css'
 
-import ItemList from './ItemList'
+import PostList from './PostList'
 
-// const defaultItems = [
+// const defaultPosts = [
 //   {
 //       id: "1",
 //       title: "Test title 1",
@@ -30,51 +29,70 @@ class App extends Component {
     super()
 
     this.state = {
-      items: []
+      posts: []
     }
   }
 
   handleTitleUpdate = (title, index) => {
-        const newItems = [...this.state.items]
-        newItems[index].title = title
-        newItems[index].isTitleEditing = false
+        const newPosts = [...this.state.posts]
+        newPosts[index].title = title
+        newPosts[index].isTitleEditing = false
         this.setState({
-          items: newItems,
+          posts: newPosts,
         })
     }
 
   handleTitleDoubleClick = (index) => {
-        const newItems = [...this.state.items]
-        newItems[index].isTitleEditing = !newItems[index].isTitleEditing
+        const newPosts = [...this.state.posts]
+        newPosts[index].isTitleEditing = !newPosts[index].isTitleEditing
         this.setState({
-          items: newItems,
+          posts: newPosts,
         })
     }
 
-  handleItemAdd = (aItem) => {
+  handleContentUpdate = (content, index) => {
+        const newPosts = [...this.state.posts]
+        newPosts[index].content = content
+        newPosts[index].isContentEditing = false
+        this.setState({
+          posts: newPosts,
+        })
+    }
+
+  handleContentDoubleClick = (index) => {
+        const newPosts = [...this.state.posts]
+        newPosts[index].isContentEditing = !newPosts[index].isContentEditing
+        this.setState({
+          posts: newPosts,
+        })
+    }
+
+  handlePostAdd = (aPost) => {
       let id = +new Date()
       let date = new Date();
-      let time = (date.getMonth() + 1) + "-" + date.getDate();
+      let time = (date.getMonth() + 1) + "/" + date.getDate() + ":" + date.getHours();
       let detailedLink = "http://localhost/post/" + id
       let imageFile = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.svg"
       let imageAlt = "location"
-      let item = Object.assign({}, {id, time, detailedLink, imageFile, imageAlt}, aItem)
-      const newItems = [item, ...this.state.items ]
+      let Post = Object.assign({}, {id, time, detailedLink, imageFile, imageAlt}, aPost)
+      const newPosts = [Post, ...this.state.posts ]
 
       //按下enter後，加到列表項目中並清空輸入框
       this.setState({
-        items: newItems,
+        posts: newPosts,
       })
   }
 
   render() {
     return (
       <div className="App">
-        <ItemList 
-          items={this.state.items} 
-          onItemAdd={this.handleItemAdd}
+        <PostList 
+          posts={this.state.posts} 
+          onPostAdd={this.handlePostAdd}
           onTitleUpdate={this.handleTitleUpdate} 
           onTitleDoubleClick={this.handleTitleDoubleClick}
+          onContentUpdate={this.handleContentUpdate} 
+          onContentDoubleClick={this.handleContentDoubleClick}
         />
       </div>
     );
