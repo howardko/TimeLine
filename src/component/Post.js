@@ -7,7 +7,7 @@ class Post extends Component {
   render(){
     const { title, isTitleEditing, onTitleDoubleClick, onTitleUpdate, 
             content, isContentEditing, onContentDoubleClick, onContentUpdate,
-            time, detailedLink, imageFile, imageAlt } = this.props
+            time, detailedLink, imageFile, imageAlt, photos } = this.props
     return(
       <div className="cd-timeline-block">
         <PostImage 
@@ -24,6 +24,7 @@ class Post extends Component {
           onContentDoubleClick={onContentDoubleClick}
           onContentUpdate={onContentUpdate}
           time={time}
+          photos={photos}
           detailedLink={detailedLink}
         /> 
       </div>

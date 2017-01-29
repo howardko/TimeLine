@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import Dropzone from 'react-dropzone'
 
-import '../style/bootstrap.min.css'
-
 class PostAdd extends Component {
   constructor() {
     super()

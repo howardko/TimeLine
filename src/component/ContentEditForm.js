@@ -7,7 +7,8 @@ class ContentEditForm extends Component {
     let contentField: any = null
     return (
       <div>
-        <input
+        <textarea
+          className="form-control"
           type="text"
           defaultValue={content}
           ref={el => { contentField = el }}

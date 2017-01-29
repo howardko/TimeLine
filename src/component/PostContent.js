@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 
-import PostMessage from './PostMessage'
 import PostTitle from './PostTitle'
+import PostMessage from './PostMessage'
+import PostPhoto from './PostPhoto'
 import TitleEditForm from './TitleEditForm'
 import ContentEditForm from './ContentEditForm'
 
@@ -49,14 +50,15 @@ class PostContent extends Component{
 
   render()
   {
-    const { isTitleEditing, isContentEditing, detailedLink, time } = this.props
+    const { isTitleEditing, isContentEditing, detailedLink, time, photos } = this.props
     const titleDisplay = (!isTitleEditing) ? this.renderTitleViewMode() : this.renderTitleEditMode()
     const contentDisplay = (!isContentEditing) ? this.renderContentViewMode(): this.renderContentEditMode()
     return(
     <div className="cd-timeline-content">
         {titleDisplay}
         {contentDisplay}
-        <a href={detailedLink} className="cd-read-more">Read more</a>
+        <PostPhoto photos={photos} />
+        <a href={detailedLink} className="cd-read-more" style={{margin: "5px"}} >Read more</a>
         <span className="cd-date">{time}</span>
     </div>)
   }

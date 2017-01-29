@@ -21,6 +21,7 @@ class PostList extends Component {
           onContentUpdate={(title) => onContentUpdate(title, index)}
           detailedLink={post.detailedLink}
           time={post.time}
+          photos={post.files}
           imageFile={post.imageFile}
           imageAlt={post.imageAlt}
         />

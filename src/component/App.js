@@ -1,28 +1,8 @@
 import React, { Component } from 'react'
+import '../style/bootstrap.min.css'
 import '../style/App.scss'
 
 import PostList from './PostList'
-
-// const defaultPosts = [
-//   {
-//       id: "1",
-//       title: "Test title 1",
-//       content: "Test content 1",
-//       detailedLink: "http://localhost/",
-//       time: "Jan 1",
-//       imageFile: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-picture.svg",
-//       imageAlt: "picture"
-//   },
-//   {
-//       id: "2",
-//       title: "Test title 2",
-//       content: "Test content 2",
-//       detailedLink: "http://localhost/",
-//       time: "Jan 2",
-//       imageFile: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-picture.svg",
-//       imageAlt: "picture"
-//   }
-// ]
 
 class App extends Component {
   constructor() {
